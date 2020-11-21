@@ -1,0 +1,29 @@
+<view class="pyg-index">
+  <SearchInput/>
+  <view class="index-swiper">
+    <swiper autoplay indicator-dots circular class="" interval="4000">
+      <swiper-item wx:for="{{swiperList}}" wx:key="index">
+        <navigator url="">
+          <image mode="widthFix" src="{{item.image_src}}" lazy-load="false"/>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="index-cate">
+    <navigator wx:for="{{catList}}" wx:key="index">
+      <image mode="widthFix" src="{{item.image_src}}"/>
+    </navigator>
+  </view>
+  <view class="index-floor">
+    <view class="floor-group" wx:for="{{floorList}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs">
+      <view class="floor-title">
+        <image mode="widthFix" src="{{items.floor_title.image_src}}"/>
+      </view>
+      <view class="product-list">
+        <navigator wx:for="{{items.product_list}}" wx:key="index">
+          <image mode="{{index===0 ? 'widthFix' : 'scaleToFill'}}" src="{{item.image_src}}"></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

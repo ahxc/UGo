@@ -1,0 +1,16 @@
+/* 导入阿里图标库的样式 */
+@import "./styles/iconfont.wxss";
+
+/* 不支持通配符 */
+page,view,text,swiper,swiper-item,image,navigator {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 主体颜色通过less变量来实现，原生css和wxss也支持变量
+设置变量名主体颜色，使用例子color: var(--themeColor) */
+page {
+  --themeColor: #eb4450;
+  font-size: 28rpx;
+}
