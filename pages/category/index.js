@@ -1,4 +1,5 @@
 import {getCategory} from "../../request/category"
+import {storage} from "../../utils/utils"
 
 Page({
   /**
@@ -10,6 +11,7 @@ Page({
     leftCateList: [],
     rightItems: [],
     cIndex: 0,
+    scrollTop: 0,
   },
 
   handleIndex(e) {
@@ -17,19 +19,20 @@ Page({
     let rightItems = this.data.catData[cIndex].children;
     this.setData({
       cIndex,
-      rightItems/* 也可以用字面量增强写法 */
+      rightItems,/* 也可以用字面量增强写法 */
+      scrollTop: 0,
     });
   },
 
-  getCategory() {
-    getCategory()
-    .then(result => {
-      let catData = result.data.message;
-      this.setData({
-        catData,
-        rightItems: catData[this.data.cIndex].children,
-        leftCateList: catData.map(v => v.cat_name)
-      });
+  async getCategory() {
+    let catData = await getCategory();
+    let rightItems = catData[this.data.cIndex].children;
+    let leftCateList = catData.map(v => v.cat_name)
+    storage.save("catData", {time: Date.now(), data: catData});
+    this.setData({
+      catData,
+      rightItems,
+      leftCateList,
     });
   },
 
@@ -37,10 +40,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let cates = wx.getStorageSync("catData");
-    if(!cates) {
-      this.getCategory()
-    } 
+    let catData_obj = storage.fetch("catData");
+    if(!catData_obj) {
+      this.getCategory();
+    }
+    else{
+      if(Date.now()-catData_obj.time>1000*600){
+        this.getCategory();
+      }
+      else{
+        let catData = catData_obj.data;
+        let rightItems = catData[this.data.cIndex].children;
+        let leftCateList = catData.map(v => v.cat_name)
+        this.setData({
+          catData,
+          rightItems,
+          leftCateList,
+        });
+      }
+    }
   },
 
   /**

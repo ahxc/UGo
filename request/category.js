@@ -1,5 +1,10 @@
 import {request} from "./request"
+import regeneratorRuntime from "../lib/runtime/runtime"
 
-export function getCategory() {
-  return request({url:'https://api-hmugo-web.itheima.net/api/public/v1/categories'})
+function getCategory() {
+  return request({url:'/api/public/v1/categories'})
+}
+
+export {
+  getCategory,
 }

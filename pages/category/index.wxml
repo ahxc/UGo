@@ -9,7 +9,7 @@
         {{item}}
       </view>
     </scroll-view>
-    <scroll-view scroll-y class="right-menu">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y class="right-menu">
       <view class="goods-group"
       wx:for="{{rightItems}}"
       wx:for-item="items"
@@ -22,6 +22,7 @@
         </view>
         <view class="goods-list">
           <navigator
+          url="/pages/goods_list/index?cid={{item.cat_id}}"
           wx:for="{{items.children}}"
           wx:key="index">
             <image src="{{item.cat_icon}}" mode="widthFix"/>

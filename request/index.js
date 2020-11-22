@@ -1,13 +1,17 @@
 import {request} from "./request"
 
-export function getSwiper() {
-  return request({url:'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata'})
+function getSwiper() {
+  return request({url:'/api/public/v1/home/swiperdata'})
 }
 
-export function getCatItems() {
-  return request({url:'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems'})
+function getCatItems() {
+  return request({url:'/api/public/v1/home/catitems'})
 }
 
-export function getFloor() {
-  return request({url:'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata'})
+function getFloor() {
+  return request({url:'/api/public/v1/home/floordata'})
+}
+
+export {
+  getSwiper, getCatItems, getFloor
 }

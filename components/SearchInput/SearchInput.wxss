@@ -2,8 +2,9 @@
   height: 90rpx;
   padding: 10rpx;
   background-color: var(--themeColor);
+  /* 组件里不建议使用标签名加入选择器会有警告 */
 }
-.search-input navigator {
+.search-input .search-box {
   display: flex;
   justify-content: center;
   align-items: center;

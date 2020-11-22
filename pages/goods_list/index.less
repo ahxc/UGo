@@ -1,0 +1,28 @@
+.goods-items{
+  display: flex;
+  border-bottom: 5rpx solid #ccc;
+  .goods-cover{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    image{
+      width: 70%;
+    }
+  }
+  .goods-info{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;/* 均等flex且留有间隙 */
+    .goods-title{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+    .goods-price{
+      color: var(--themeColor);
+      font-size: 32rpx;
+    }
+  }
+}

@@ -14,19 +14,19 @@ Page({
     getSwiper()
     .then(result => {
       this.setData({
-        swiperList: result.data.message
+        swiperList: result
       });
     });
     getCatItems()
     .then(result => {
       this.setData({
-        catList: result.data.message
+        catList: result
       });
     });
     getFloor()
     .then(result => {
       this.setData({
-        floorList: result.data.message
+        floorList: result
       });
     })
   },
