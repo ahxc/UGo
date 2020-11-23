@@ -1,2 +1,56 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="address-row">
+  <view class="address-btn" wx:if="{{!address.userName}}">
+    <button type="primary" plain bindtap="handleAddress">获取收获地址</button>
+  </view>
+  <view wx:else class="user-info-row">
+    <view class="user-info">
+      <view>{{address.userName}}</view>
+      <view>
+        {{address.complete}}
+      </view>
+    </view>
+    <view class="user-phone">{{address.telNumber}}</view>
+  </view>
+</view>
+
+<view class="cart-content">
+  <view class="cart-item">
+    <view class="cart-checkbox">
+      <checkbox-group bindchange="">
+        <checkbox></checkbox>
+      </checkbox-group>
+    </view>
+    <view class="cart-item-cover">
+      <image class="" src="http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_200x200.jpg" mode="widthFix"/>
+    </view>
+    <view class="cart-item-main">
+      <view class="cart-headnote">
+        撒旦发射点分为确认完成第三方v维尔确认额外热舞范德萨v为其热发电v
+      </view>
+      <view class="cart-footnote">
+        <view class="cart-item-price">$23423</view>
+        <view class="cart-item-handle">
+          <view class="cart-item-num-btn">-</view>
+          <view class="cart-item-num">299</view>
+          <view class="cart-item-num-btn">+</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="foot-tool">
+  <view class="all-check">
+    <checkbox-group bindchange="">
+      <checkbox></checkbox>
+      全选
+    </checkbox-group>
+  </view>
+  <view class="total-price-wrap">
+    <view class="total-price">
+      合计：<text class="total-price-text">$999</text>
+    </view>
+    <view>包含运费</view>
+  </view>
+  <view class="order-pay">结算</view>
+</view>

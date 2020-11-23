@@ -1,1 +1,110 @@
-/* pages/cart/index.wxss */
+page {
+  background-color: #e6e6e6;
+}
+.address-row {
+  width: 100%;
+}
+.address-row .address-btn {
+  padding: 20rpx;
+}
+.address-row .address-btn button {
+  width: 60%;
+}
+.user-info-row {
+  margin: 20rpx 0;
+  padding: 20rpx 20px;
+  background-color: #fff;
+  display: flex;
+}
+.user-info-row .user-info {
+  flex: 5;
+}
+.user-info-row .user-phone {
+  flex: 3;
+  text-align: right;
+}
+.cart-content .cart-item {
+  display: flex;
+  height: 200rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.cart-content .cart-item .cart-checkbox {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-content .cart-item .cart-item-cover {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-content .cart-item .cart-item-cover image {
+  width: 80%;
+}
+.cart-content .cart-item .cart-item-main {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 20rpx;
+}
+.cart-content .cart-item .cart-item-main .cart-headnote {
+  font-size: 28rpx;
+  color: black;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.cart-content .cart-item .cart-item-main .cart-footnote {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-content .cart-item .cart-item-main .cart-footnote .cart-item-price {
+  color: var(--themeColor);
+  font-size: 34rpx;
+}
+.cart-content .cart-item .cart-item-main .cart-footnote .cart-item-handle {
+  display: flex;
+}
+.cart-content .cart-item .cart-item-main .cart-footnote .cart-item-handle .cart-item-num-btn {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45rpx;
+  width: 45rpx;
+  font-size: 34rpx;
+}
+.cart-content .cart-item .cart-item-main .cart-footnote .cart-item-handle .cart-item-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 3;
+  height: 45rpx;
+  width: 45rpx;
+  font-size: 28rpx;
+  background-color: #e6e6e6;
+  border-radius: 5rpx;
+}
+.foot-tool {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  display: flex;
+}
+.foot-tool .all-check {
+  flex: 4;
+}
+.foot-tool .total-price-wrap {
+  flex: 4;
+}
+.foot-tool .order-pay {
+  flex: 2;
+}

@@ -81,6 +81,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    /* 当页数的判断 */
     if(this.data.queryParams.pagenum<this.data.totalPage){
       this.data.queryParams.pagenum += 1;
       this.getGoodsList(this.data.queryParams);

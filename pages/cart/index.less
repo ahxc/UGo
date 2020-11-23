@@ -1,0 +1,119 @@
+page{
+  background-color: #e6e6e6;
+}
+
+.address-row{
+  width: 100%;
+  .address-btn{
+    padding: 20rpx;
+    button{
+      width: 60%;
+    }
+  }
+}
+
+.user-info-row{
+  margin: 20rpx 0;
+  padding: 20rpx 20px;
+  background-color: #fff;
+  display: flex;
+  .user-info{
+    flex: 5;
+  }
+  .user-phone{
+    flex: 3;
+    text-align: right;
+  }
+}
+
+.cart-content{
+  .cart-item{
+    display: flex;
+    height: 200rpx;
+    background-color: #fff;
+    border-bottom: 1rpx solid #e6e6e6;
+    .cart-checkbox{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-item-cover{
+      flex: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      image{
+        width: 80%;
+      }
+    }
+    .cart-item-main{
+      flex: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding-right: 20rpx;
+      .cart-headnote{
+        font-size: 28rpx;
+        color: black;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .cart-footnote{
+        display: flex;
+        justify-content: space-between;
+        .cart-item-price{
+          color: var(--themeColor);
+          font-size: 34rpx;
+        }
+        .cart-item-handle{
+          display: flex;
+          .cart-item-num-btn{
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 45rpx;
+            width: 45rpx;
+            font-size: 34rpx;
+          }
+          .cart-item-num{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 3;
+            height: 45rpx;
+            width: 45rpx;
+            font-size: 28rpx;
+            background-color: #e6e6e6;
+            border-radius: 5rpx;
+          }
+        }
+      }
+    }
+  }
+}
+
+.foot-tool{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  display: flex;
+  .all-check{
+    flex: 4;
+  }
+  .total-price-wrap{
+    flex: 4;
+    .total-price{
+      .total-price-text{}
+    }
+  }
+  .order-pay{
+    flex: 2;
+  }
+}

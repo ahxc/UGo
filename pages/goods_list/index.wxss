@@ -19,7 +19,9 @@
   /* 均等flex且留有间隙 */
 }
 .goods-items .goods-info .goods-title {
+  /* 省略多余字体，用...表示 */
   display: -webkit-box;
+  overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }

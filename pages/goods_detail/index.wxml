@@ -1,2 +1,44 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<view class="detai-swiper">
+  <swiper indicator-dots>
+    <swiper-item wx:for="{{goods.pics}}" wx:key="index"
+    bindtap="handlePreview" data-operation="{{index}}">
+      <image src="{{item.pics_mid}}" mode="heightFix"/>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="goods-price">￥{{goods.goods_price}}</view>
+<view class="goods-name-row">
+  <view class="goods-name">{{goods.goods_name}}</view>
+  <view class="goods-collect">
+    <text class="iconfont icon-shoucang"></text>
+    <view class="text-collect">收藏</view>
+  </view>
+</view>
+<view class="goods-info">
+  <view class="goods-info-title">图文详情</view>
+  <view class="goods-info-content">
+    <rich-text nodes="{{goods.goods_introduce}}"></rich-text>
+  </view>
+</view>
+<view class="btm-tool">
+  <view class="tool-item">
+    <view class="iconfont icon-kefu"></view>
+    <view>客服</view>
+    <button open-type="contact"></button>
+  </view>
+  <view class="tool-item">
+    <view class="iconfont icon-yixianshi-"></view>
+    <view>分享</view>
+    <button open-type="share"></button>
+  </view>
+  <navigator open-type="switchTab" url="/pages/cart/index" class="tool-item">
+    <view class="iconfont icon-gouwuche"></view>
+    <view>购物车</view>
+  </navigator>
+  <view class="tool-item btn-cart" bindtap="handleAddCart">
+    加入购物车
+  </view>
+  <view class="tool-item btn-buy">
+    立即购买
+  </view>
+</view>
