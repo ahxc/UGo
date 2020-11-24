@@ -1,0 +1,30 @@
+{
+  "name": "ugo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "axios-miniprogram-adapter": "^0.3.2",
+    "miniprogram-computed": "^2.2.0",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahxc/UGo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahxc/UGo/issues"
+  },
+  "homepage": "https://github.com/ahxc/UGo#readme"
+}

@@ -27,68 +27,78 @@ page{
 }
 
 .cart-content{
-  .cart-item{
+  .cart-null{
     display: flex;
-    height: 200rpx;
-    background-color: #fff;
-    border-bottom: 1rpx solid #e6e6e6;
-    .cart-checkbox{
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    justify-content: center;
+    align-items: center;
+    image{
+      width: 100%;
     }
-    .cart-item-cover{
-      flex: 2;
+  }
+  .cart-main{
+    .cart-item{
       display: flex;
-      align-items: center;
-      justify-content: center;
-      image{
-        width: 80%;
-      }
-    }
-    .cart-item-main{
-      flex: 4;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      padding-right: 20rpx;
-      .cart-headnote{
-        font-size: 28rpx;
-        color: black;
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-      }
-      .cart-footnote{
+      height: 200rpx;
+      background-color: #fff;
+      border-bottom: 1rpx solid #e6e6e6;
+      .cart-checkbox{
+        flex: 1;
         display: flex;
-        justify-content: space-between;
-        .cart-item-price{
-          color: var(--themeColor);
-          font-size: 34rpx;
+        align-items: center;
+        justify-content: center;
+      }
+      .cart-item-cover{
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        image{
+          height: 80%;
         }
-        .cart-item-handle{
+      }
+      .cart-item-main{
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-right: 20rpx;
+        .cart-headnote{
+          font-size: 28rpx;
+          color: black;
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+        .cart-footnote{
           display: flex;
-          .cart-item-num-btn{
-            flex: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 45rpx;
-            width: 45rpx;
+          justify-content: space-between;
+          .cart-item-price{
+            color: var(--themeColor);
             font-size: 34rpx;
           }
-          .cart-item-num{
+          .cart-item-handle{
             display: flex;
-            align-items: center;
-            justify-content: center;
-            flex: 3;
-            height: 45rpx;
-            width: 45rpx;
-            font-size: 28rpx;
-            background-color: #e6e6e6;
-            border-radius: 5rpx;
+            .cart-item-num-btn{
+              flex: 2;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 45rpx;
+              width: 45rpx;
+              font-size: 34rpx;
+            }
+            .cart-item-num{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex: 3;
+              height: 45rpx;
+              width: 45rpx;
+              font-size: 28rpx;
+              background-color: #e6e6e6;
+              border-radius: 5rpx;
+            }
           }
         }
       }
@@ -97,6 +107,7 @@ page{
 }
 
 .foot-tool{
+  border-top: 1rpx solid #e6e6e6;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -105,15 +116,35 @@ page{
   background-color: #fff;
   display: flex;
   .all-check{
-    flex: 4;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .total-price-wrap{
+    padding: 10rpx 10rpx;
     flex: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: flex-end;
     .total-price{
-      .total-price-text{}
+      .total-price-text{
+        font-size: 32rpx;
+        color: var(--themeColor);
+      }
+    }
+    .price-note{
+      font-size: 20rpx;
     }
   }
   .order-pay{
     flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: var(--themeColor);
   }
 }

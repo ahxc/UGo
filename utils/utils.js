@@ -20,6 +20,21 @@ function getSetting() {
   })
 }
 
+function showToast(params){
+  return new Promise((resolve, reject) => {
+    wx.showToast({
+      ...params,
+      success: (res) => {
+        resolve(res);
+      },
+      fail: (err) => {
+        reject(err);
+      },
+    });
+      
+  })
+}
+
 function chooseAddress() {
   return new Promise((resolve, reject)=>{
     wx.chooseAddress({
@@ -46,7 +61,22 @@ function openSetting() {
   })
 }
 
+function showModal() {
+  return new Promise((resolve, reject) => {
+    wx.showModal({
+      title: '提示',
+      content: '从购物车中删除这件商品？',
+      success: (res) => {
+        resolve(res.confirm);
+      },
+      fail: (err) => {
+        reject(err);
+      }
+    });
+  })
+}
+
 export {
-  storage, openSetting, getSetting, chooseAddress,
+  storage, openSetting, getSetting, chooseAddress, showModal, showToast
 }
   

@@ -14,43 +14,48 @@
 </view>
 
 <view class="cart-content">
-  <view class="cart-item">
-    <view class="cart-checkbox">
-      <checkbox-group bindchange="">
-        <checkbox></checkbox>
-      </checkbox-group>
-    </view>
-    <view class="cart-item-cover">
-      <image class="" src="http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_200x200.jpg" mode="widthFix"/>
-    </view>
-    <view class="cart-item-main">
-      <view class="cart-headnote">
-        撒旦发射点分为确认完成第三方v维尔确认额外热舞范德萨v为其热发电v
+  <view class="cart-main" wx:if="{{cart.length}}">
+    <view class="cart-item" wx:for="{{cart}}" wx:key="index">
+      <view class="cart-checkbox">
+        <checkbox-group bindchange="handleChecked" data-operation="{{item.goods_id}}">
+          <checkbox checked="{{item.goods_checked}}"></checkbox>
+        </checkbox-group>
       </view>
-      <view class="cart-footnote">
-        <view class="cart-item-price">$23423</view>
-        <view class="cart-item-handle">
-          <view class="cart-item-num-btn">-</view>
-          <view class="cart-item-num">299</view>
-          <view class="cart-item-num-btn">+</view>
+      <view class="cart-item-cover">
+        <image class="" src="{{item.goods_small_logo}}" mode="heightFix"/>
+      </view>
+      <view class="cart-item-main">
+        <view class="cart-headnote">
+          {{item.goods_name}}
+        </view>
+        <view class="cart-footnote">
+          <view class="cart-item-price">￥{{item.goods_price}}</view>
+          <view class="cart-item-handle">
+            <view class="cart-item-num-btn" bindtap="handleItemNum" data-operation="{{[item.goods_id, -1]}}">-</view>
+            <view class="cart-item-num">{{item.goods_num}}</view>
+            <view class="cart-item-num-btn" bindtap="handleItemNum" data-operation="{{[item.goods_id, 1]}}">+</view>
+          </view>
         </view>
       </view>
     </view>
+  </view>
+  <view class="cart-null" wx:else>
+    <image src="https://s3.ax1x.com/2020/11/24/DtXTBD.jpg" mode="widthFix" lazy-load/>
   </view>
 </view>
 
 <view class="foot-tool">
   <view class="all-check">
-    <checkbox-group bindchange="">
-      <checkbox></checkbox>
+    <checkbox-group bindchange="handlePick">
+      <checkbox checked="{{allChecked}}"></checkbox>
       全选
     </checkbox-group>
   </view>
   <view class="total-price-wrap">
     <view class="total-price">
-      合计：<text class="total-price-text">$999</text>
+      合计：<text class="total-price-text">￥{{totalPrice}}</text>
     </view>
-    <view>包含运费</view>
+    <view class="price-note">包含运费</view>
   </view>
-  <view class="order-pay">结算</view>
+  <view class="order-pay" bindtap="handlePay">结算({{totalNum}})</view>
 </view>

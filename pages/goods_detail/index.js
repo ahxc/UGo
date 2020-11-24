@@ -39,6 +39,7 @@ Page({
     );
     if(index===-1){/* 不存在于购物车 */
       let g = new GoodsInfoC(this.data.goods);
+      g.goods_checked = true;
       cart.push(g);
     }
     else{
