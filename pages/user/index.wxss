@@ -1,1 +1,60 @@
-/* pages/user/index.wxss */
+.user-container {
+  height: 40vh;
+  width: 100%;
+  background-color: var(--themeColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-container .user-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+  width: 100%;
+}
+.user-container .user-img .user-img-bacground {
+  height: 100%;
+  width: 100%;
+  filter: blur(10px);
+  /* 图下个高斯模糊 */
+}
+.user-container .user-img .user-info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-container .user-img .user-info image {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50rpx;
+  bottom: 45%;
+}
+.user-container .user-img .user-info .user-name {
+  text-align: center;
+  color: #fff;
+  background-color: #bfbfbf;
+  border-radius: 10rpx;
+  margin-top: 25rpx;
+}
+.user-container .user-login-btn navigator {
+  width: 200rpx;
+  height: 90rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+  /* Y轴方向移动，左上角顶点，自身元素基准 */
+}
+.user-content {
+  position: relative;
+}
+.user-content .user-main {
+  background-color: #bfbfbf;
+  position: absolute;
+  top: -40rpx;
+}

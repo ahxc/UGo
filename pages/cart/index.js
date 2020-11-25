@@ -50,21 +50,15 @@ Page({
     let {address, totalNum} = this.data;
     if(!totalNum){
       await showToast({title: "还没有选择任何商品", icon: "none"});
-      return;
+      return;/* 推出整个函数 */
     }
     if(!address.userName){
       await showToast({title: "还没有选择收货地址", icon: "none"});
       return;
     }
     wx.navigateTo({
-      url: '/pages/pay/index',
-      success: (result) => {
-        
-      },
-      fail: () => {},
-      complete: () => {}
+      url: '/pages/pay/index'
     });
-      
   },
 
   async handleItemNum(e){

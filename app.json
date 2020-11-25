@@ -48,7 +48,7 @@
         "selectedIconPath": "icons/cart-o.png"
       },
       {
-        "pagePath": "pages/auth/index",
+        "pagePath": "pages/user/index",
         "text": "我的",
         "iconPath": "icons/my.png",
         "selectedIconPath": "icons/my-o.png"

@@ -1,4 +1,6 @@
-// pages/auth/index.js
+import {login, storage} from "../../utils/utils"
+import {getToken} from "../../request/auth"
+
 Page({
 
   /**
@@ -6,6 +8,23 @@ Page({
    */
   data: {
 
+  },
+
+  async handleUserInfo(e){
+    try {
+      const {encryptedData, rawData, iv, signature} = e.detail;
+      const {code} = await login();
+      /* 组成token */
+      const params = {encryptedData, rawData, iv, signature, code};
+      const token = "sdfreujewvndsvherbffj"//await getToken(params);
+      storage.save("token", token);
+      wx.navigateBack({/* 同时向上返回一个页面 */
+        delta: 1
+      });
+    }
+    catch (err) {
+      console.log(err);
+    }
   },
 
   /**

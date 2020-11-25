@@ -76,7 +76,38 @@ function showModal() {
   })
 }
 
-export {
-  storage, openSetting, getSetting, chooseAddress, showModal, showToast
+function login() {
+  return new Promise((resolve, reject) => {
+    wx.login({
+      timeout:10000,
+      success: (res) => {
+        resolve(res)
+      },
+      fail: (err) => {
+        reject(err)
+      }
+    });
+      
+  })
 }
-  
+
+function requestPayment(params) {
+  return new Promise((resolve, reject) => {
+    wx.requestPayment({
+      ...params,
+      success: (result) => {
+        resolve(result)
+      },
+      fail: (err) => {
+        reject(err)
+      }
+    });
+      
+      
+  })
+}
+
+export {
+  storage, openSetting, getSetting, chooseAddress, showModal, showToast,
+  login, requestPayment
+}

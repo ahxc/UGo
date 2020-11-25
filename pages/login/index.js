@@ -1,4 +1,4 @@
-// pages/login/index.js
+import {storage} from "../../utils/utils"
 Page({
 
   /**
@@ -6,6 +6,15 @@ Page({
    */
   data: {
 
+  },
+
+  handleUserInfo(e) {
+    const {userInfo} = e.detail;
+    storage.save("userInfo", userInfo);
+    console.log(userInfo)
+    wx.navigateBack({
+      delta: 1
+    });
   },
 
   /**
