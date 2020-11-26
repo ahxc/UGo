@@ -1,5 +1,5 @@
 import {getGoodsDetail} from "../../request/goods_detail"
-import {storage} from "../../utils/utils"
+import {storage, showToast} from "../../utils/utils"
 import {GoodsInfoC} from "../../utils/constractor"
 
 Page({
@@ -9,6 +9,7 @@ Page({
    */
   data: {
     goods: Object,
+    isCollect: false,
   },
 
   async getGoodsDetail(params) {
@@ -16,9 +17,45 @@ Page({
     /* introduce内的富文本包含webP格式的图片，部分苹果手机不识别，
     最好先联系后台让其修改，临时用正则 */
     goods.goods_introduce.replace(/\.webp/g, '.jpg');
+    let collect = storage.fetch("collect") || [];
+    let isCollect = false;
+    if(collect.length===0){/* 为空防止读属性出错 */
+      isCollect = false
+    }
+    else{
+      isCollect = collect.some(v => v.goods_id===this.data.goods.goods_id);
+    }
     this.setData({
       goods,
+      isCollect,
     });
+  },
+
+  handleCollect(){
+    /* 获取缓存中的收藏数组 */
+    let collect = storage.fetch("collect") || [];
+    if(collect.length===0){
+      collect.push(this.data.goods);
+      this.setData({
+        isCollect: true,
+      })
+      storage.save("collect", collect);
+      return;
+    }
+    let index = collect.findIndex(v => v.goods_id===this.data.goods.goods_id);
+    if(index!==-1){
+      collect.splice(index, 1);
+      this.setData({
+        isCollect: false,
+      })
+    }
+    else{
+      collect.push(this.data.goods);
+      this.setData({
+        isCollect: true,
+      })
+    }
+    storage.save("collect", collect);
   },
 
   handlePreview(e){
@@ -72,7 +109,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let pages =  getCurrentPages();
+    let currentPage = pages[pages.length-1];    
+    let options = currentPage.options;
+    const {goods_id} = options;
+    this.getGoodsDetail({goods_id});
   },
 
   /**

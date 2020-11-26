@@ -1,0 +1,52 @@
+.collect-main{
+  color: #666;
+  font-size: 24rpx;
+  background-color: #fff;
+  .collect-title{
+    padding: 20rpx 0;
+    .collect-tips{
+      padding: 6rpx 10rpx;
+      margin: 0 10rpx;
+      border: 1rpx solid #ccc;
+      border-radius: 10rpx;
+    }
+    .active{
+      background-color: var(--themeColor);
+      border: 1rpx solid var(--themeColor);
+      color: #fff;
+      border-radius: 10rpx;
+    }
+  }
+  .collect-content{
+    .goods-items{
+      display: flex;
+      border-bottom: 5rpx solid #ccc;
+      .goods-cover{
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        image{
+          width: 70%;
+        }
+      }
+      .goods-info{
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;/* 均等flex且留有间隙 */
+        .goods-title{
+          /* 省略多余字体，用...表示 */
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+        .goods-price{
+          color: var(--themeColor);
+          font-size: 32rpx;
+        }
+      }
+    }
+  }
+}

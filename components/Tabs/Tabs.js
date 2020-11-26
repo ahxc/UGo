@@ -20,7 +20,7 @@ Component({
   methods: {
     handleIndex(e) {
       let cIndex = e.currentTarget.dataset.operation;
-      this.event
+      this.triggerEvent("tabEvent", cIndex)
       this.setData({
         cIndex,
       });

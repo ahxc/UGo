@@ -1,2 +1,22 @@
-<!--pages/collect/index.wxml-->
-<text>pages/collect/index.wxml</text>
+<Tabs tabsList="{{collectList}}" bind:tabEvent="handleTab">
+  <view class="collect-main">
+    <view class="collect-title">
+      <text class="collect-tips active">全部</text>
+      <text class="collect-tips">热卖</text>
+      <text class="collect-tips">即将上线</text>
+    </view>
+    <view class="collect-content">
+      <navigator class="goods-items"
+      wx:for="{{collect}}" wx:key="index"
+      url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+        <view class="goods-cover">
+          <image src="{{item.goods_small_logo ? item.goods_small_logo : 'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" lazy-load/>
+        </view>
+        <view class="goods-info">
+          <view class="goods-title">{{item.goods_name}}</view>
+          <view class="goods-price">￥{{item.goods_price}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</Tabs>

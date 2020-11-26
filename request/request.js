@@ -1,4 +1,4 @@
-import { storage } from "../utils/utils";
+import {storage} from "../utils/utils";
 
 const baseUrl = 'https://api-hmugo-web.itheima.net';
 
@@ -14,9 +14,9 @@ function request(params) {
 
   const header = {...params.header}/* 1获取参数中的请求头 */
   if(params.url.includes("/my/")){/* 2如果是私有路径请求，获取缓存中的token */
-    header["Authorization"] = storage.fetch("token");
+    header["Authorization"] = "BearereyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIzLCJpYXQiOjE1NjQ3MzAwNzksImV4cCI6MTAwMTU2NDczMDA3OH0.YPt-XeLnjV-_1ITaXGY2FhxmCe4NvXuRnRB8OMCfnPo"//storage.fetch("token");
   }
-    
+  
   return new Promise((resolve, reject)=>{
     wx.request({
       ...params,// 这里wx urllib的参数和axios形式axios(params)有点区别，而且wx.request似乎没有baseurl的概念

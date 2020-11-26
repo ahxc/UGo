@@ -36,6 +36,9 @@
 .goods-name-row .goods-collect .iconfont {
   text-align: center;
 }
+.goods-name-row .goods-collect .icon-shoucang1 {
+  color: orangered;
+}
 .goods-name-row .goods-collect .text-collect {
   text-align: center;
 }

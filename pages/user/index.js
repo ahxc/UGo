@@ -6,14 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    collect: [],
   },
 
   onShow(){
     const userInfo = storage.fetch("userInfo");
-    console.log(userInfo)
+    let collect = storage.fetch("collect")
     this.setData({
       userInfo,
+      collect,
     })
   },
 

@@ -1,18 +1,27 @@
-// pages/collect/index.js
+import {storage} from "../../utils/utils"
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    collect: [],
+    collectList: ["商品收藏", "店铺收藏", "浏览足迹"],
+  },
 
+  handleTab(i){
+    // console.log(i.detail);// 子组件的数据流存在detail中
+    let index = i.detail+1;
+    if(index<=3){
+      console.log(index)
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
@@ -26,7 +35,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let collect = storage.fetch("collect") || [];
+    this.setData({
+      collect,
+    })
   },
 
   /**

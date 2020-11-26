@@ -53,9 +53,82 @@
 
 .user-content{
   position: relative;
+  background-color: #e6e6e6;
+  width: 100%;
+  height: 60vh;
   .user-main{
-    background-color: #bfbfbf;
+    width: 90%;
     position: absolute;
     top: -40rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #666;
+    .history{
+      background-color: #fff;
+      display: flex;
+      navigator{
+        padding: 10rpx;
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .his-num{
+          color: var(--themeColor);
+        }
+        .his-name{
+          font-size: 24rpx;
+        }
+      }
+    }
+    .orders{
+      background-color: #fff;
+      margin-top: 20rpx;
+      .orders-title{
+        padding: 20rpx;
+        border-bottom: 1rpx solid #bfbfbf;
+      }
+      .orders-content{
+        display: flex;
+        navigator{
+          padding: 10rpx;
+          flex:1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .iconfont{}
+          .order-name{
+            padding-top: 10rpx;
+            font-size: 24rpx;
+          }
+        }
+      }
+    }
+    .address{
+      padding: 20rpx;
+      background-color: #fff;
+      margin-top: 20rpx;
+      font-size: 24rpx;
+    }
+    .app-assit{
+      margin-top: 20rpx;
+      background-color: #fff;
+      font-size: 24rpx;
+      .app-assit-item{
+        padding: 20rpx;
+        border-bottom: 1rpx solid #e6e6e6;
+      }
+      .assit-item-text{
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .recommend{
+      margin-top: 20rpx;
+      padding: 20rpx;
+      background-color: #fff;
+      font-size: 24rpx;
+    }
   }
 }

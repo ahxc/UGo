@@ -1,2 +1,20 @@
-<!--pages/order/index.wxml-->
-<text>pages/order/index.wxml</text>
+<Tabs tabsList="{{tabsList}}" bind:tabEvent="handleTab">
+  <view class="orders-main">
+    <navigator class="orders-items"
+    wx:for="{{orders}}" wx:key="index"
+    url="">
+      <view class="order-group">
+        <view class="order-title">订单编号</view>
+        <view class="order-num-value">{{item.order_number}}</view>
+      </view>
+      <view class="order-group">
+        <view class="order-title">订单价格</view>
+        <view class="order-pri-value">￥{{item.order_price}}</view>
+      </view>
+      <view class="order-group">
+        <view class="order-title">订单日期</view>
+        <view class="order-date-value">{{item.create_time}}</view>
+      </view>
+    </navigator>
+  </view>
+</Tabs>
