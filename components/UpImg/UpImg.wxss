@@ -1,0 +1,17 @@
+.up-img-content {
+  width: 90rpx;
+  height: 90rpx;
+  margin: 10rpx;
+  position: relative;
+  background-color: blue;
+}
+.up-img-content .up-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 15rpx;
+}
+.up-img-content .up-clear {
+  position: absolute;
+  top: -22rpx;
+  right: -22rpx;
+}

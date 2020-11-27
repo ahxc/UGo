@@ -1,0 +1,4 @@
+<view class="up-img-content">
+  <image class="up-image" src="{{src}}"/>
+  <icon class="up-clear" type="clear" size="23" color="red"/>
+</view>

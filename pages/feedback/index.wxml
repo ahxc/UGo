@@ -1,2 +1,30 @@
-<!--pages/feedback/index.wxml-->
-<text>pages/feedback/index.wxml</text>
+<Tabs tabsList="{{tabsList}}" bindtabsItemChange="handleTabsItemChange" >
+  <view class="feed-main">
+    <view class="feed-title">问题的种类</view>
+    <view class="feed-tips">
+      <text class="feed-tips-text">功能建议</text>
+      <text class="feed-tips-text">购买遇到问题</text>
+      <text class="feed-tips-text">性能问题</text>
+      <text class="feed-tips-text">其他</text>
+    </view>
+    <view class="feed-content">
+      <textarea class="feed-textarea" value="{{textVal}}" bindinput="handleTextInput" placeholder="请描述您的问题"/>
+      <view class="feed-tool">
+        <button class="feed-tool-btn" bindtap="handleChooseImg">+</button>
+        <view class="up-img-item"
+        wx:for="{{chooseImgList}}"
+        wx:key="index"
+        bindtap="handleImg"
+        data-index="{{index}}">
+          <UpImg src="{{item}}"></UpImg>
+        </view>
+      </view>
+    </view>
+    <view class="feed-form">
+      <button class="feed-form-btn" bindtap="handleFormSubmit"  type="warn">
+        <icon  type="success_no_circle" size="23" color="white"/>
+        提交
+      </button>
+    </view>
+  </view>
+</Tabs>

@@ -1,11 +1,51 @@
-// pages/search/index.js
+import {getSearch} from "../../request/search"
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    goods: [],
+    btnHidden: true,
+    inpValue: "",
+  },
+  timer: -1,
 
+  async getSearch(query){
+    let goods = await getSearch(query);
+    this.setData({
+      goods,
+    })
+  },
+
+  btnCancel(){
+    this.setData({
+      inpValue: "",
+      btnHidden: true,
+      goods: [],
+    });
+    clearTimeout(this.timer)
+  },
+
+  handleInput(e){
+    let {value} = e.detail;
+    if(!value.trim()){
+      this.setData({
+        btnHidden: true,
+        goods: [],
+      });
+      clearTimeout(this.timer);/* 防止异步删除文本框后还是会有goods */
+      return;/* 空值不合法不实时发送请求 */
+    }
+    this.setData({
+      btnHidden: false,
+    })
+    /* 防抖 */
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      this.getSearch({query: value})
+    }, 1000);
   },
 
   /**
