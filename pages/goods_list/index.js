@@ -33,7 +33,9 @@ Page({
    */
   /* options传入页面的query参数 */
   onLoad: function (options) {
-    this.data.queryParams.cid = options.cid;
+    this.data.queryParams.cid = options.cid || "";/* 首页分类点击进来 */
+    this.data.queryParams.query = options.query || "";/* 搜索栏搜索进来 */
+    console.log(this.data.queryParams)
     this.getGoodsList(this.data.queryParams);
   },
 

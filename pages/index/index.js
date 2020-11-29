@@ -8,14 +8,20 @@ Page({
     catList: [],
     floorList: [],
   },
+  
   onLoad: function(options) {
     // 自带的urllib，域名合法性临时做法勾选不校验合法性
     // 长远则需要把域名加入开发平台中的白名单，加入和修改次数有限
     getSwiper()
     .then(result => {
-      this.setData({
-        swiperList: result
+      let swiperList = result;
+      swiperList.forEach(e => {/* 后端的路径不搭 */
+        e.navigator_url = e.navigator_url.replace("main", "index")
       });
+      this.setData({
+        swiperList
+      });
+      
     });
     getCatItems()
     .then(result => {

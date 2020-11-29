@@ -9,6 +9,7 @@ Page({
     tabsList: ["体验问题", "商家投诉", "意见和建议"],
     textVal: "",
     chooseImgList: [],
+    UpLoadImgs: [],
   },
 
   handleTextInput(e){
@@ -18,23 +19,50 @@ Page({
   },
 
   handleFormSubmit(){
-    const {textVal} = this.data;
+    const {textVal, chooseImgList} = this.data;
     if(!textVal.trim()){
-      showToast({title: "意见不能为空！", icon: "none"})
+      showToast({title: "意见不能为空！", icon: "none", mask: true})
       return;
     }
-    var upTask = wx.uploadFile({
-      url: '',/* 上传路径，注意这里是单个文件 */
-      filePath: ,/* 上传文件的路径 */
-      name: ,/* 上传文件的名称 */
-      formData: {},/* 顺带的文本信息 */
-      success: (result) => {
-        
-      },
-      fail: () => {},
-      complete: () => {}
+
+    /* 显示正在上传动画 */
+    wx.showLoading({
+      title: "信息上传中...",
+      mask: true,
     });
-      
+
+    if(chooseImgList.length != 0){
+      chooseImgList.forEach((v, i) => {
+        wx.uploadFile({
+          url: '',/* 上传路径，注意这里是单个文件 */
+          filePath: v,/* 上传文件的路径 */
+          name: "file",/* 上传文件的名称 */
+          formData: {},/* 顺带的文本信息 */
+          success: (result) => {
+            let url = JSON.parse(result.data).url;
+            this.data.UpLoadImgs.push(url);
+            if(i==chooseImgList.length-1){/* 索引到达了最后一张图片 */
+              wx.hideLoading();/* 关闭加载中动画 */
+              this.setData({/* 重置页面 */
+                textval: "",
+                chooseImgList: [],
+              })
+              wx.navigateBack({
+                delta: 1
+              });
+            }
+          },
+          fail: () => {},
+          complete: () => {}
+        });
+      })
+    }
+    else{/* 图片list为0只上传了文本 */
+      wx.hideLoading();
+      wx.navigateBack({
+        delta: 1
+      });
+    }
   },
 
   handleTab(i){
